@@ -1,0 +1,109 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-900">多読ランキング</h1>
+      <%= link_to books_path, class: "bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700" do %>
+        書籍一覧に戻る
+      <% end %>
+    </div>
+
+    <!-- ランキングリスト -->
+    <div class="bg-white rounded-lg shadow">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <h2 class="text-lg font-medium text-gray-900">総語数ランキング</h2>
+        <p class="text-sm text-gray-500">読了した本の総語数で順位付けしています</p>
+      </div>
+      
+      <% if @users.any? %>
+        <div class="divide-y divide-gray-200">
+          <% @users.each_with_index do |user, index| %>
+            <div class="px-6 py-4">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <!-- ランキング順位 -->
+                  <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full 
+                    <%= case index
+                        when 0 then 'bg-yellow-100 text-yellow-800'
+                        when 1 then 'bg-gray-100 text-gray-600'
+                        when 2 then 'bg-orange-100 text-orange-700'
+                        else 'bg-gray-50 text-gray-500'
+                        end %>">
+                    <span class="text-lg font-bold">
+                      <%= case index
+                          when 0 then '🥇'
+                          when 1 then '🥈'
+                          when 2 then '🥉'
+                          else (index + 1).to_s
+                          end %>
+                    </span>
+                  </div>
+                  
+                  <div class="ml-4">
+                    <%= link_to user_path(user), class: "text-lg font-medium text-blue-600 hover:text-blue-800" do %>
+                      <%= user.nickname %>
+                    <% end %>
+                    <div class="text-sm text-gray-500">
+                      <%= user.books_count.to_i %>冊 読了
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="text-right">
+                  <div class="text-xl font-semibold text-gray-900">
+                    <%= number_with_delimiter(user.total_words.to_i) %>語
+                  </div>
+                  <div class="text-sm text-gray-500">
+                    平均 <%= number_with_delimiter((user.total_words.to_i / [user.books_count.to_i, 1].max).round) %>語/冊
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="px-6 py-12 text-center">
+          <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+          </svg>
+          <h3 class="mt-4 text-lg font-medium text-gray-900">まだユーザーがいません</h3>
+          <p class="mt-2 text-sm text-gray-500">最初に本を読了したユーザーになりましょう！</p>
+          <%= link_to books_path, class: "mt-4 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700" do %>
+            本を探す
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- 統計情報 -->
+    <% if @users.any? %>
+      <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-blue-600">
+              <%= @total_users %>人
+            </div>
+            <div class="text-sm text-gray-500">アクティブな読書家</div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-green-600">
+              <%= number_with_delimiter(@total_words) %>語
+            </div>
+            <div class="text-sm text-gray-500">コミュニティ総語数</div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-purple-600">
+              <%= @total_books %>冊
+            </div>
+            <div class="text-sm text-gray-500">コミュニティ総読了冊数</div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

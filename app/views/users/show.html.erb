@@ -1,7 +1,11 @@
 <div class="container mx-auto px-4 py-8">
   <div class="max-w-6xl mx-auto">
+    <!-- ヘッダー -->
     <div class="flex justify-between items-center mb-8">
-      <h1 class="text-3xl font-bold text-gray-900">読了記録</h1>
+      <div>
+        <h1 class="text-3xl font-bold text-gray-900"><%= @user.nickname %>さんの読書記録</h1>
+        <p class="text-gray-600">多読の進捗を見てみましょう</p>
+      </div>
       <div class="flex space-x-3">
         <%= link_to users_path, class: "bg-gray-200 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-300" do %>
           ランキング
@@ -12,8 +16,8 @@
       </div>
     </div>
 
-    <!-- 読了統計サマリー -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <!-- 統計サマリー -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
       <div class="bg-white rounded-lg shadow p-6">
         <div class="flex items-center">
           <div class="p-3 rounded-full bg-blue-100 text-blue-500">
@@ -23,7 +27,7 @@
           </div>
           <div class="ml-4">
             <p class="text-sm font-medium text-gray-500">読了冊数</p>
-            <p class="text-2xl font-semibold text-gray-900"><%= current_user.books_read_count %>冊</p>
+            <p class="text-2xl font-semibold text-gray-900"><%= @books_count %>冊</p>
           </div>
         </div>
       </div>
@@ -37,7 +41,7 @@
           </div>
           <div class="ml-4">
             <p class="text-sm font-medium text-gray-500">総語数</p>
-            <p class="text-2xl font-semibold text-gray-900"><%= number_with_delimiter(current_user.total_words_read) %>語</p>
+            <p class="text-2xl font-semibold text-gray-900"><%= number_with_delimiter(@total_words) %>語</p>
           </div>
         </div>
       </div>
@@ -52,8 +56,8 @@
           <div class="ml-4">
             <p class="text-sm font-medium text-gray-500">平均語数/冊</p>
             <p class="text-2xl font-semibold text-gray-900">
-              <% if current_user.books_read_count > 0 %>
-                <%= number_with_delimiter((current_user.total_words_read / current_user.books_read_count).round) %>語
+              <% if @books_count > 0 %>
+                <%= number_with_delimiter((@total_words / @books_count).round) %>語
               <% else %>
                 0語
               <% end %>
@@ -61,12 +65,46 @@
           </div>
         </div>
       </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <div class="flex items-center">
+          <div class="p-3 rounded-full bg-yellow-100 text-yellow-500">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="ml-4">
+            <p class="text-sm font-medium text-gray-500">最近30日</p>
+            <p class="text-2xl font-semibold text-gray-900"><%= @recent_activity.count %>冊</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- 読了記録リスト -->
+    <!-- 月別読書統計チャート -->
+    <% if @monthly_stats.any? %>
+      <div class="bg-white rounded-lg shadow p-6 mb-8">
+        <h2 class="text-lg font-medium text-gray-900 mb-4">月別読書語数</h2>
+        <%= line_chart @monthly_stats, 
+            suffix: "語", 
+            thousands: ",",
+            height: "300px",
+            colors: ["#3B82F6"] %>
+      </div>
+    <% else %>
+      <div class="bg-white rounded-lg shadow p-6 mb-8">
+        <h2 class="text-lg font-medium text-gray-900 mb-4">月別読書統計</h2>
+        <div class="text-center py-8">
+          <p class="text-gray-500">まだ十分なデータがありません</p>
+          <p class="text-sm text-gray-400">読書記録が増えるとグラフが表示されます</p>
+        </div>
+      </div>
+    <% end %>
+
+    <!-- 最近の読了記録 -->
     <div class="bg-white rounded-lg shadow">
       <div class="px-6 py-4 border-b border-gray-200">
-        <h2 class="text-lg font-medium text-gray-900">読了記録一覧</h2>
+        <h2 class="text-lg font-medium text-gray-900">最近の読了記録</h2>
       </div>
       
       <% if @reading_logs.any? %>
@@ -90,30 +128,28 @@
                     <%= number_with_delimiter(reading_log.book.word_count) %>語 • <%= reading_log.read_at.strftime("%Y年%m月%d日") %>に読了
                   </div>
                 </div>
-                <div class="flex items-center space-x-2">
+                <div class="ml-4">
                   <%= link_to book_path(reading_log.book), class: "text-blue-600 hover:text-blue-800 text-sm" do %>
-                    詳細
-                  <% end %>
-                  <%= link_to book_reading_log_path(reading_log.book, reading_log),
-                      class: "text-red-600 hover:text-red-800 text-sm",
-                      data: { "turbo-method": :delete, "turbo-confirm": "読了記録を削除しますか？" } do %>
-                    削除
+                    詳細を見る
                   <% end %>
                 </div>
               </div>
             </div>
           <% end %>
         </div>
+        
+        <% if @reading_logs.count >= 20 %>
+          <div class="px-6 py-4 bg-gray-50 text-center">
+            <p class="text-sm text-gray-500">最新20件を表示しています</p>
+          </div>
+        <% end %>
       <% else %>
         <div class="px-6 py-12 text-center">
           <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
           </svg>
-          <h3 class="mt-4 text-lg font-medium text-gray-900">読了記録がありません</h3>
-          <p class="mt-2 text-sm text-gray-500">本を読了したら記録をつけてみましょう！</p>
-          <%= link_to books_path, class: "mt-4 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700" do %>
-            本を探す
-          <% end %>
+          <h3 class="mt-4 text-lg font-medium text-gray-900">まだ読了記録がありません</h3>
+          <p class="mt-2 text-sm text-gray-500"><%= @user.nickname %>さんの最初の読了記録をお待ちしています！</p>
         </div>
       <% end %>
     </div>

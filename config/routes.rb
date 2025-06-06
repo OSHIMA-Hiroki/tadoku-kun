@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   
   # Reading logs
   resources :reading_logs, only: [:index]
+  
+  # Users (public profiles)
+  resources :users, only: [:index, :show]
 end
