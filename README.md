@@ -1,89 +1,24 @@
-# tadoku-kun
-> Track your extensive-reading journey in English with ease.
+# README
 
-英語多読（Extensive Reading）の「読了語数」と「難易度 (YL)」を自動で記録し、学習の進捗を可視化する Ruby on Rails 製ウェブアプリケーションです。SEG 多読推薦図書リストをベースにした書籍データを同梱し、読んだ本を選ぶだけで総語数が累計されます。目標語数の達成時には SNS 共有用リンクも生成——多読学習を続けるモチベーションを高めます。
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
----
+Things you may want to cover:
 
-## 目次
-1. [主な特徴](#主な特徴)  
-2. [ロードマップ](#ロードマップ)  
-3. [技術スタック](#技術スタック)  
-4. [開発環境の構築](#開発環境の構築)  
-5. [テスト](#テスト)  
-6. [デプロイ指針](#デプロイ指針)  
-7. [貢献方法](#貢献方法)  
-8. [ライセンス](#ライセンス)  
-9. [データソース](#データソース)
+* Ruby version
 
----
+* System dependencies
 
-## 主な特徴
+* Configuration
 
-- **書籍リスト内蔵**  
-  - SEG 推薦図書（YL・総語数付き）を初期データとして搭載  
-- **読了記録の自動集計**  
-  - 書籍を選ぶだけで総語数／難易度を履歴に保存  
-  - 全読了語数の累積をリアルタイムで表示  
-- **目標語数トラッキング**  
-  - 10 万語・100 万語など任意マイルストーンを設定可能  
-- **SNS 共有**  
-  - 達成時に “英語を **◎◎語** 読破！” 画像プレビュー付き URL をワンクリック発行  
-- **シンプル認証**  
-  - ニックネーム＋パスワードのみの軽量ユーザ登録  
-- **検索 & 自主登録**  
-  - タイトル／総語数／YL で高速検索  
-  - 未収録の本はユーザが自由に追加可能  
+* Database creation
 
----
+* Database initialization
 
-## ロードマップ
+* How to run the test suite
 
-| フェーズ | 内容 |
-|---------|------|
-| **a. 書籍リスト表示** | Web ページに一覧（タイトル・YL・総語数）を表示 |
-| **b. ユーザ認証** | ニックネーム＋パスワードで登録／ログイン |
-| **c. 読了登録** | 一覧から選択して読了として保存 |
-| **d. 総語数可視化** | プロフィールに累計語数バッジを表示 |
-| **e. 検索機能** | タイトル・総語数・YL でフィルタ／ソート |
-| **f. 書籍追加** | ユーザが本を自作登録可能 |
-| **g. 目標設定** | 任意語数の目標と進捗バー |
-| **h. SNS 投稿** | マイルストーン到達時に X 等へ共有リンク生成 |
+* Services (job queues, cache servers, search engines, etc.)
 
-> ※進行状況は Issues / Projects で管理予定です。
+* Deployment instructions
 
----
-
-## 技術スタック
-
-| レイヤ | 採用技術 | コメント |
-|-------|---------|---------|
-| **言語 / FW** | Ruby 3.x, **Ruby on Rails 8 (Hotwire, Turbo, Stimulus)** | フロントエンドも Rails 標準機能で完結 |
-| **DB** | **PostgreSQL 16** | JSONB でメタ情報を柔軟に保持できるため推奨 |
-| **認証** | **Devise** + Turbo | UX を損ねない SPA ライクな認証 |
-| **UI** | Tailwind CSS, Heroicons | Rails 公式 Tailwind インテグレーション利用 |
-| **チャート** | Chartkick + Groupdate | 累計語数の推移を可視化 |
-| **テスト** | **RSpec**, FactoryBot, RuboCop | CI で自動実行 |
-| **CI** | GitHub Actions | Lint / Test / Deploy ワークフロー |
-| **将来追加** | Docker / Docker Compose | `docker compose up` だけで起動できる開発環境 |
-
----
-
-## 開発環境の構築
-
-```bash
-# 1. レポジトリをクローン
-git clone https://github.com/<your-name>/tadoku-kun.git
-cd tadoku-kun
-
-# 2. 依存インストール
-bundle install
-yarn install  # tailwindcss など
-
-# 3. DB 作成 & マイグレーション
-cp .env.example .env         # 必要に応じて環境変数を設定
-bin/rails db:create db:migrate db:seed  # 初期書籍データ投入
-
-# 4. 開発サーバ起動
-bin/dev                      # foreman で rails / tailwind / esbuild を同時実行
-
+* ...

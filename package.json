@@ -1,0 +1,20 @@
+{
+  "name": "tadoku-kun",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --outdir=app/assets/builds --public-path=/assets",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/tailwind.css --watch"
+  },
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.1",
+    "@hotwired/turbo-rails": "^7.3.0",
+    "esbuild": "^0.17.11"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.7"
+  },
+  "browserslist": [
+    "defaults"
+  ]
+}

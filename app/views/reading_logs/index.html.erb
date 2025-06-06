@@ -1,0 +1,116 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-900">読了記録</h1>
+      <%= link_to books_path, class: "bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700" do %>
+        書籍一覧に戻る
+      <% end %>
+    </div>
+
+    <!-- 読了統計サマリー -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="bg-white rounded-lg shadow p-6">
+        <div class="flex items-center">
+          <div class="p-3 rounded-full bg-blue-100 text-blue-500">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+          </div>
+          <div class="ml-4">
+            <p class="text-sm font-medium text-gray-500">読了冊数</p>
+            <p class="text-2xl font-semibold text-gray-900"><%= current_user.books_read_count %>冊</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <div class="flex items-center">
+          <div class="p-3 rounded-full bg-green-100 text-green-500">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <div class="ml-4">
+            <p class="text-sm font-medium text-gray-500">総語数</p>
+            <p class="text-2xl font-semibold text-gray-900"><%= number_with_delimiter(current_user.total_words_read) %>語</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <div class="flex items-center">
+          <div class="p-3 rounded-full bg-purple-100 text-purple-500">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+            </svg>
+          </div>
+          <div class="ml-4">
+            <p class="text-sm font-medium text-gray-500">平均語数/冊</p>
+            <p class="text-2xl font-semibold text-gray-900">
+              <% if current_user.books_read_count > 0 %>
+                <%= number_with_delimiter((current_user.total_words_read / current_user.books_read_count).round) %>語
+              <% else %>
+                0語
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 読了記録リスト -->
+    <div class="bg-white rounded-lg shadow">
+      <div class="px-6 py-4 border-b border-gray-200">
+        <h2 class="text-lg font-medium text-gray-900">読了記録一覧</h2>
+      </div>
+      
+      <% if @reading_logs.any? %>
+        <div class="divide-y divide-gray-200">
+          <% @reading_logs.each do |reading_log| %>
+            <div class="px-6 py-4">
+              <div class="flex items-center justify-between">
+                <div class="flex-1">
+                  <div class="flex items-center">
+                    <%= link_to book_path(reading_log.book), class: "text-lg font-medium text-blue-600 hover:text-blue-800" do %>
+                      <%= reading_log.book.title %>
+                    <% end %>
+                    <span class="ml-3 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                      YL <%= reading_log.book.yomiyasusa_level %>
+                    </span>
+                  </div>
+                  <div class="mt-1 text-sm text-gray-500">
+                    著者: <%= reading_log.book.author %>
+                  </div>
+                  <div class="mt-1 text-sm text-gray-500">
+                    <%= number_with_delimiter(reading_log.book.word_count) %>語 • <%= reading_log.read_at.strftime("%Y年%m月%d日") %>に読了
+                  </div>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <%= link_to book_path(reading_log.book), class: "text-blue-600 hover:text-blue-800 text-sm" do %>
+                    詳細
+                  <% end %>
+                  <%= link_to book_reading_log_path(reading_log.book, reading_log), method: :delete,
+                      class: "text-red-600 hover:text-red-800 text-sm",
+                      confirm: "読了記録を削除しますか？" do %>
+                    削除
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="px-6 py-12 text-center">
+          <svg class="w-12 h-12 mx-auto text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+          <h3 class="mt-4 text-lg font-medium text-gray-900">読了記録がありません</h3>
+          <p class="mt-2 text-sm text-gray-500">本を読了したら記録をつけてみましょう！</p>
+          <%= link_to books_path, class: "mt-4 inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700" do %>
+            本を探す
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
