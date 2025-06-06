@@ -1,40 +1,63 @@
-<div class="container mx-auto px-4 py-8">
-  <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
-    <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">新規登録</h2>
-
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-
-      <div class="mb-4">
-        <%= f.label :nickname, "ニックネーム", class: "block text-sm font-medium text-gray-700 mb-2" %>
-        <%= f.text_field :nickname, class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", placeholder: "あなたのニックネーム" %>
-      </div>
-
-      <div class="mb-4">
-        <%= f.label :email, "メールアドレス", class: "block text-sm font-medium text-gray-700 mb-2" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" %>
-      </div>
-
-      <div class="mb-4">
-        <%= f.label :password, "パスワード", class: "block text-sm font-medium text-gray-700 mb-2" %>
-        <% if @minimum_password_length %>
-          <p class="text-xs text-gray-500 mb-1">(<%= @minimum_password_length %>文字以上)</p>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "new-password", class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" %>
-      </div>
-
-      <div class="mb-6">
-        <%= f.label :password_confirmation, "パスワード確認", class: "block text-sm font-medium text-gray-700 mb-2" %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" %>
-      </div>
-
-      <div class="mb-4">
-        <%= f.submit "新規登録", class: "w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500" %>
-      </div>
-    <% end %>
-
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
     <div class="text-center">
-      <%= render "devise/shared/links" %>
+      <h1 class="text-3xl font-bold text-blue-600 mb-2">📚 Tadoku-kun</h1>
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">新規登録</h2>
+      <p class="text-sm text-gray-600">多読の旅を始めましょう</p>
+    </div>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow-lg rounded-lg sm:px-10">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="space-y-6">
+          <div>
+            <%= f.label :nickname, "ニックネーム", class: "block text-sm font-medium text-gray-700 mb-2" %>
+            <%= f.text_field :nickname, 
+                class: "w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200", 
+                placeholder: "あなたのニックネーム",
+                autofocus: true %>
+          </div>
+
+          <div>
+            <%= f.label :email, "メールアドレス", class: "block text-sm font-medium text-gray-700 mb-2" %>
+            <%= f.email_field :email, 
+                autocomplete: "email", 
+                class: "w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200",
+                placeholder: "your@email.com" %>
+          </div>
+
+          <div>
+            <%= f.label :password, "パスワード", class: "block text-sm font-medium text-gray-700 mb-2" %>
+            <% if @minimum_password_length %>
+              <p class="text-xs text-gray-500 mb-1">(<%= @minimum_password_length %>文字以上)</p>
+            <% end %>
+            <%= f.password_field :password, 
+                autocomplete: "new-password", 
+                class: "w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200",
+                placeholder: "パスワードを入力" %>
+          </div>
+
+          <div>
+            <%= f.label :password_confirmation, "パスワード確認", class: "block text-sm font-medium text-gray-700 mb-2" %>
+            <%= f.password_field :password_confirmation, 
+                autocomplete: "new-password", 
+                class: "w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200",
+                placeholder: "パスワードを再入力" %>
+          </div>
+
+          <div>
+            <%= f.submit "新規登録", 
+                class: "w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-200 cursor-pointer" %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="mt-6 space-y-3">
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>
