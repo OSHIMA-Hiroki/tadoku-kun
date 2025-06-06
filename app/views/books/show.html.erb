@@ -78,11 +78,10 @@
                     ✓ <%= @times_read %>回読了済み
                   </span>
                 </div>
-                <%= link_to book_reading_logs_path(@book), 
-                    class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium",
-                    data: { "turbo-method": :post } do %>
-                  再読として記録
-                <% end %>
+                <%= button_to "再読として記録", book_reading_logs_path(@book), 
+                    method: :post,
+                    form: { style: "display: inline;" },
+                    class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium border-0 cursor-pointer" %>
               </div>
               
               <div class="bg-gray-50 p-4 rounded-lg">
@@ -93,11 +92,10 @@
                       <span class="text-sm text-gray-600">
                         第<%= @times_read - index %>回目: <%= log.read_at.strftime("%Y年%m月%d日") %>
                       </span>
-                      <%= link_to book_reading_log_path(@book, log), 
-                          class: "text-red-500 hover:text-red-700 text-sm",
-                          data: { "turbo-method": :delete, "turbo-confirm": "この読了記録を削除しますか？" } do %>
-                        削除
-                      <% end %>
+                      <%= button_to "削除", book_reading_log_path(@book, log), 
+                          method: :delete,
+                          form: { style: "display: inline;", data: { "turbo-confirm": "この読了記録を削除しますか？" } },
+                          class: "text-red-500 hover:text-red-700 text-sm bg-transparent border-0 cursor-pointer p-0" %>
                     </div>
                   <% end %>
                 </div>
@@ -106,11 +104,10 @@
           <% else %>
             <div class="flex items-center justify-between">
               <span class="text-gray-500">まだ読んでいません</span>
-              <%= link_to book_reading_logs_path(@book), 
-                  class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium",
-                  data: { "turbo-method": :post } do %>
-                読了として記録
-              <% end %>
+              <%= button_to "読了として記録", book_reading_logs_path(@book), 
+                  method: :post,
+                  form: { style: "display: inline;" },
+                  class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium border-0 cursor-pointer" %>
             </div>
           <% end %>
         <% else %>

@@ -118,14 +118,14 @@
                       <%= reading_log.book.title %>
                     <% end %>
                     <span class="ml-3 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                      YL <%= reading_log.book.yomiyasusa_level %>
+                      YL <%= reading_log.book.yl_display %>
                     </span>
                   </div>
                   <div class="mt-1 text-sm text-gray-500">
                     著者: <%= reading_log.book.author %>
                   </div>
                   <div class="mt-1 text-sm text-gray-500">
-                    <%= number_with_delimiter(reading_log.book.word_count) %>語 • <%= reading_log.read_at.strftime("%Y年%m月%d日") %>に読了
+                    <%= reading_log.book.word_count_display %>語 • <%= reading_log.read_at.strftime("%Y年%m月%d日") %>に読了
                   </div>
                 </div>
                 <div class="ml-4">
