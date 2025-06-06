@@ -89,9 +89,9 @@
                   <%= link_to book_path(reading_log.book), class: "text-blue-600 hover:text-blue-800 text-sm" do %>
                     詳細
                   <% end %>
-                  <%= link_to book_reading_log_path(reading_log.book, reading_log), method: :delete,
+                  <%= link_to book_reading_log_path(reading_log.book, reading_log),
                       class: "text-red-600 hover:text-red-800 text-sm",
-                      confirm: "読了記録を削除しますか？" do %>
+                      data: { "turbo-method": :delete, "turbo-confirm": "読了記録を削除しますか？" } do %>
                     削除
                   <% end %>
                 </div>

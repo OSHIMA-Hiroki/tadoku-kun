@@ -75,17 +75,18 @@
                   <%= @reading_log.read_at.strftime("%Y年%m月%d日") %>に読了
                 </span>
               </div>
-              <%= link_to book_reading_log_path(@book, @reading_log), method: :delete, 
+              <%= link_to book_reading_log_path(@book, @reading_log), 
                   class: "bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium",
-                  confirm: "読了記録を削除しますか？" do %>
+                  data: { "turbo-method": :delete, "turbo-confirm": "読了記録を削除しますか？" } do %>
                 読了記録を削除
               <% end %>
             </div>
           <% else %>
             <div class="flex items-center justify-between">
               <span class="text-gray-500">まだ読んでいません</span>
-              <%= link_to book_reading_logs_path(@book), method: :post,
-                  class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium" do %>
+              <%= link_to book_reading_logs_path(@book), 
+                  class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium",
+                  data: { "turbo-method": :post } do %>
                 読了として記録
               <% end %>
             </div>

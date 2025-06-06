@@ -8,14 +8,10 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
     
     <!-- Inline Tailwind CSS as fallback -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Turbo for SPA-like navigation -->
-    <script type="module">
-      import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo-rails';
-    </script>
   </head>
 
   <body class="bg-gray-50">
