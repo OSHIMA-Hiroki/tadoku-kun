@@ -17,6 +17,6 @@ Rails.application.routes.draw do
   # Reading logs
   resources :reading_logs, only: [:index]
   
-  # Users (public profiles)
-  resources :users, only: [:index, :show]
+  # Users (public profiles) - put this after devise routes to avoid conflicts
+  resources :users, only: [:index, :show], constraints: { id: /\d+/ }
 end

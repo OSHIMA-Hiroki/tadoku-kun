@@ -9,7 +9,7 @@
           <span class="text-gray-700">こんにちは、<%= current_user.nickname %>さん！</span>
           <%= link_to "読了記録", reading_logs_path, class: "text-blue-600 hover:text-blue-800" %>
           <%= link_to "ランキング", users_path, class: "text-blue-600 hover:text-blue-800" %>
-          <%= link_to "ログアウト", destroy_user_session_path, data: { "turbo-method": :delete }, class: "bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600" %>
+          <%= button_to "ログアウト", destroy_user_session_path, method: :delete, form: { style: "display: inline;" }, class: "bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 border-0 cursor-pointer" %>
         <% else %>
           <%= link_to "ログイン", new_user_session_path, class: "text-blue-600 hover:text-blue-800" %>
           <%= link_to "新規登録", new_user_registration_path, class: "bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700" %>
