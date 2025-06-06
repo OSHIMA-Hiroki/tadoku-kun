@@ -2,16 +2,19 @@
 
 > Track your extensive reading journey in English with ease.
 
+**🌐 Live Demo: [https://tadoku-kun.onrender.com](https://tadoku-kun.onrender.com)**
+
 A Ruby on Rails web application for tracking extensive reading progress in English. Users can record books they've read, track word counts, view community rankings, and visualize their reading progress through beautiful charts and statistics.
 
 ## ✨ Features
 
 ### 📖 **Extensive Reading Catalog**
-- Curated collection of 18 books from SEG (Society of English Grammar) recommended reading list
-- YL (Yomiyasusa Level) difficulty ratings from 0.5 to 6.2
-- Accurate word counts for precise progress tracking
-- Search and filter by title, difficulty level, and word count
-- Detailed book information including authors and descriptions
+- Curated collection of 22 books from SEG (Society of English Grammar) recommended reading list
+- YL (Yomiyasusa Level) difficulty ratings from 0.5 to 6.2, including ranges (e.g., 0.8-1.4)
+- Word count support for both exact counts and ranges (e.g., 700-1500 words)
+- Advanced search and filter by title, YL range, and word count range
+- Detailed book information including authors, series information, and descriptions
+- Support for series books like "Oxford Bookworms" and "Penguin Readers"
 
 ### 👤 **User Management**
 - Secure user registration and authentication with Devise
@@ -20,11 +23,13 @@ A Ruby on Rails web application for tracking extensive reading progress in Engli
 - Responsive design for mobile and desktop
 
 ### 📊 **Reading Progress Tracking**
-- Mark books as read with automatic word count accumulation
-- Personal reading history with completion dates
-- Total words read and books completed statistics
+- Mark books as read with automatic word count accumulation using average values
+- **Multiple readings support** - Read the same book multiple times, each counting toward progress
+- Personal reading history with completion dates and re-reading tracking
+- Total words read and books completed statistics with smart range calculations
 - Average words per book calculations
 - Recent reading activity tracking (last 30 days)
+- Complete reading history showing all reading attempts with timestamps
 
 ### 🏆 **Community Features**
 - User rankings based on total words read
@@ -72,7 +77,7 @@ A Ruby on Rails web application for tracking extensive reading progress in Engli
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/tadoku-kun.git
+   git clone https://github.com/OSHIMA-Hiroki/tadoku-kun.git
    cd tadoku-kun
    ```
 
@@ -86,7 +91,7 @@ A Ruby on Rails web application for tracking extensive reading progress in Engli
    ```bash
    bin/rails db:create
    bin/rails db:migrate
-   bin/rails db:seed  # Loads 18 SEG recommended books
+   bin/rails db:seed  # Loads 22 SEG recommended books with range support
    ```
 
 4. **Start the development server**
@@ -96,20 +101,24 @@ A Ruby on Rails web application for tracking extensive reading progress in Engli
 
 5. **Visit the application**
    Open [http://localhost:3000](http://localhost:3000) in your browser
+   
+   Or try the live demo at **[https://tadoku-kun.onrender.com](https://tadoku-kun.onrender.com)**
 
 ## 📱 How to Use
 
 ### Getting Started
-1. **Create an account** - Register with your email, nickname, and password
-2. **Browse the book catalog** - Explore 18 carefully selected books from YL 0.5 to 6.2
-3. **Filter and search** - Find books by difficulty level, word count, or title
-4. **View book details** - See word counts, authors, and difficulty ratings
+1. **Create an account** - Register with your email, nickname, and password at [tadoku-kun.onrender.com](https://tadoku-kun.onrender.com)
+2. **Browse the book catalog** - Explore 22 carefully selected books from YL 0.5 to 6.2
+3. **Filter and search** - Find books by YL range, word count range, or title
+4. **View book details** - See word counts (including ranges), authors, and difficulty ratings
 
 ### Tracking Your Reading
 1. **Mark books as read** - Click "読了として記録" on any book page
-2. **View your progress** - Check your reading history at `/reading_logs`
-3. **Monitor statistics** - See total words read, books completed, and averages
-4. **Track recent activity** - View your reading activity from the last 30 days
+2. **Re-read books** - Click "再読として記録" to record multiple readings of the same book
+3. **View your progress** - Check your reading history at `/reading_logs`
+4. **Monitor statistics** - See total words read, books completed, and averages (calculated using smart range averaging)
+5. **Track recent activity** - View your reading activity from the last 30 days
+6. **Manage reading history** - Delete individual reading records if needed
 
 ### Community Features
 1. **Check rankings** - Visit `/users` to see the community leaderboard
@@ -154,7 +163,7 @@ bundle exec bundle-audit check --update
 
 ### Database Operations
 ```bash
-bin/rails db:reset      # Reset with fresh seed data (18 books)
+bin/rails db:reset      # Reset with fresh seed data (22 books)
 bin/rails db:migrate    # Run pending migrations
 bin/rails db:seed       # Load seed data only
 bin/rails db:rollback   # Rollback last migration
@@ -228,7 +237,7 @@ We welcome contributions! Please follow these steps:
 - **Models**: 3 (User, Book, ReadingLog)
 - **Controllers**: 4 (Application, Books, ReadingLogs, Users)
 - **Views**: 8+ responsive pages with Tailwind CSS
-- **Seed Data**: 18 books from SEG recommended reading list
+- **Seed Data**: 22 books from SEG recommended reading list with range support
 - **Test Coverage**: RSpec test suite with FactoryBot
 - **Database**: PostgreSQL with optimized queries
 - **Charts**: Interactive Chart.js visualizations
@@ -253,12 +262,15 @@ Tadoku-kun supports the extensive reading approach:
 
 ## 🚀 Deployment
 
+**Live Production App**: [https://tadoku-kun.onrender.com](https://tadoku-kun.onrender.com)
+
 ### Environment Variables
 ```bash
 # Required for production
 RAILS_MASTER_KEY=your_master_key
 DATABASE_URL=postgresql://user:password@host:port/database
 RAILS_ENV=production
+RAILS_SERVE_STATIC_FILES=true
 ```
 
 ### Production Setup
@@ -273,6 +285,20 @@ bin/rails db:migrate
 bin/rails db:seed
 ```
 
+### Deployment Platforms
+
+This application is successfully deployed on **Render** with:
+- Automatic deployments from GitHub
+- PostgreSQL database
+- SSL/HTTPS enabled
+- Environment variable management
+- Zero-downtime deployments
+
+For deployment on other platforms:
+- **Railway**: Simple deployment with auto-detection
+- **Heroku**: Classic platform with add-ons ecosystem
+- **DigitalOcean App Platform**: Scalable container-based deployment
+
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -281,8 +307,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you encounter any issues or have questions:
 
-- 📝 [Create an issue](https://github.com/your-username/tadoku-kun/issues) for bugs or feature requests
-- 💬 [Join discussions](https://github.com/your-username/tadoku-kun/discussions) for general questions
+- 📝 [Create an issue](https://github.com/OSHIMA-Hiroki/tadoku-kun/issues) for bugs or feature requests
+- 💬 [Join discussions](https://github.com/OSHIMA-Hiroki/tadoku-kun/discussions) for general questions
 - 📧 Contact the maintainers for security issues
 - 🌟 Star the repository if you find it useful!
 
@@ -304,5 +330,24 @@ When reporting bugs, please include:
 - **Chart.js** for beautiful data visualization
 - **Tailwind CSS** for responsive design utilities
 - **Contributors** who help improve this project
+
+---
+
+## 🆕 Recent Updates
+
+### Version 2.0.0 Features
+- **YL & Word Count Ranges**: Support for books with ranges like "YL 0.8-1.4" and "700-1500 words"
+- **Multiple Reading Support**: Read the same book multiple times with complete tracking
+- **Enhanced Search**: Filter by YL range and word count range
+- **Production Deployment**: Live app available at [tadoku-kun.onrender.com](https://tadoku-kun.onrender.com)
+- **Smart Statistics**: Automatic average calculation for range-based books
+- **Improved UI**: Better button functionality and responsive design
+- **Series Support**: Added support for book series like Oxford Bookworms and Penguin Readers
+
+### Bug Fixes
+- Fixed logout functionality in production environment
+- Fixed "読了として記録" button reliability across all environments
+- Improved form submission handling for better production stability
+- Enhanced database constraints for multiple readings support
 
 **Happy Reading! 📖✨**
