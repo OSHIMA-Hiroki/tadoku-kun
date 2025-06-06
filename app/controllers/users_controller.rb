@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     @users = User.joins(reading_logs: :book)
-                 .select('users.*, COUNT(reading_logs.id) as books_count, SUM(books.word_count) as total_words')
+                 .select('users.*, COUNT(reading_logs.id) as books_count, SUM(books.word_count_avg) as total_words')
                  .group('users.id')
                  .order('total_words DESC')
                  .limit(50)
@@ -28,6 +28,6 @@ class UsersController < ApplicationController
     @monthly_stats = @user.reading_logs
                          .joins(:book)
                          .group_by_month(:read_at, last: 12)
-                         .sum('books.word_count')
+                         .sum('books.word_count_avg')
   end
 end

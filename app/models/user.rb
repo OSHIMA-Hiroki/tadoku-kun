@@ -11,10 +11,14 @@ class User < ApplicationRecord
   has_many :read_books, through: :reading_logs, source: :book
 
   def total_words_read
-    reading_logs.joins(:book).sum('books.word_count')
+    reading_logs.joins(:book).sum('books.word_count_avg')
   end
 
   def books_read_count
     reading_logs.count
+  end
+
+  def unique_books_read_count
+    reading_logs.joins(:book).distinct.count('books.id')
   end
 end

@@ -26,11 +26,16 @@
         
         <div class="flex flex-wrap gap-2 mb-6">
           <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-            YL <%= @book.yomiyasusa_level %>
+            YL <%= @book.yl_display %>
           </span>
           <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-            <%= number_with_delimiter(@book.word_count) %>語
+            <%= @book.word_count_display %>語
           </span>
+          <% if user_signed_in? && @times_read > 0 %>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
+              <%= @times_read %>回読了
+            </span>
+          <% end %>
         </div>
       </div>
 
@@ -52,11 +57,11 @@
           <dl class="grid grid-cols-1 gap-x-4 gap-y-2 sm:grid-cols-2">
             <div>
               <dt class="text-sm font-medium text-gray-500">読みやすさレベル (YL)</dt>
-              <dd class="text-sm text-gray-900"><%= @book.yomiyasusa_level %></dd>
+              <dd class="text-sm text-gray-900"><%= @book.yl_display %></dd>
             </div>
             <div>
               <dt class="text-sm font-medium text-gray-500">総語数</dt>
-              <dd class="text-sm text-gray-900"><%= number_with_delimiter(@book.word_count) %>語</dd>
+              <dd class="text-sm text-gray-900"><%= @book.word_count_display %>語</dd>
             </div>
           </dl>
         </div>
@@ -65,21 +70,38 @@
       <!-- 読了記録のステータスとアクション -->
       <div class="mt-8 border-t pt-6">
         <% if user_signed_in? %>
-          <% if @reading_log %>
-            <div class="flex items-center justify-between">
-              <div class="flex items-center">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                  ✓ 読了済み
-                </span>
-                <span class="ml-3 text-sm text-gray-500">
-                  <%= @reading_log.read_at.strftime("%Y年%m月%d日") %>に読了
-                </span>
+          <% if @times_read > 0 %>
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                    ✓ <%= @times_read %>回読了済み
+                  </span>
+                </div>
+                <%= link_to book_reading_logs_path(@book), 
+                    class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium",
+                    data: { "turbo-method": :post } do %>
+                  再読として記録
+                <% end %>
               </div>
-              <%= link_to book_reading_log_path(@book, @reading_log), 
-                  class: "bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium",
-                  data: { "turbo-method": :delete, "turbo-confirm": "読了記録を削除しますか？" } do %>
-                読了記録を削除
-              <% end %>
+              
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <h4 class="font-medium text-gray-900 mb-2">読了履歴</h4>
+                <div class="space-y-2">
+                  <% @reading_logs.order(read_at: :desc).each_with_index do |log, index| %>
+                    <div class="flex items-center justify-between">
+                      <span class="text-sm text-gray-600">
+                        第<%= @times_read - index %>回目: <%= log.read_at.strftime("%Y年%m月%d日") %>
+                      </span>
+                      <%= link_to book_reading_log_path(@book, log), 
+                          class: "text-red-500 hover:text-red-700 text-sm",
+                          data: { "turbo-method": :delete, "turbo-confirm": "この読了記録を削除しますか？" } do %>
+                        削除
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
             </div>
           <% else %>
             <div class="flex items-center justify-between">

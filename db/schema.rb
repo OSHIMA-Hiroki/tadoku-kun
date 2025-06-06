@@ -10,18 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_06_092003) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_06_154432) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "books", force: :cascade do |t|
     t.string "title", null: false
-    t.decimal "yomiyasusa_level", precision: 3, scale: 1
-    t.integer "word_count"
+    t.string "yomiyasusa_level"
+    t.string "word_count"
     t.string "isbn"
     t.string "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "yl_min", precision: 3, scale: 1
+    t.decimal "yl_max", precision: 3, scale: 1
+    t.integer "word_count_min"
+    t.integer "word_count_max"
+    t.integer "word_count_avg"
     t.index ["isbn"], name: "index_books_on_isbn", unique: true
     t.index ["title"], name: "index_books_on_title"
     t.index ["word_count"], name: "index_books_on_word_count"
@@ -37,7 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_06_092003) do
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_reading_logs_on_book_id"
     t.index ["read_at"], name: "index_reading_logs_on_read_at"
-    t.index ["user_id", "book_id"], name: "index_reading_logs_on_user_id_and_book_id", unique: true
+    t.index ["user_id", "book_id"], name: "index_reading_logs_on_user_and_book"
     t.index ["user_id"], name: "index_reading_logs_on_user_id"
   end
 
