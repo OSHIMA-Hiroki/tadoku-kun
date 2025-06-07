@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  before_action :set_book, only: [:show]
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :set_book, only: [:show, :destroy]
 
   def index
     @books = Book.includes(:reading_logs)
@@ -70,6 +70,11 @@ class BooksController < ApplicationController
       @book_data = params[:book_data]
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @book.destroy
+    redirect_to books_path, notice: '本が削除されました。'
   end
 
   private

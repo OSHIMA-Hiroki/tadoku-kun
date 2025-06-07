@@ -105,9 +105,11 @@
           <%= link_to book.title, book_path(book), class: "text-blue-600 hover:text-blue-800" %>
         </h3>
         
-        <div class="text-sm text-gray-600 mb-4">
-          <p>著者: <%= book.author %></p>
-        </div>
+        <% if book.author.present? %>
+          <div class="text-sm text-gray-600 mb-4">
+            <p>著者: <%= book.author %></p>
+          </div>
+        <% end %>
         
         <div class="flex justify-between items-center">
           <div class="flex space-x-4">

@@ -1,9 +1,9 @@
 class Book < ApplicationRecord
   validates :title, presence: true, length: { minimum: 1, maximum: 255 }
   validates :yomiyasusa_level, presence: true
-  validates :word_count, presence: true
+  validates :word_count, presence: false, allow_blank: true
   validates :isbn, uniqueness: { allow_blank: true }
-  validates :author, presence: true, length: { minimum: 1, maximum: 255 }
+  validates :author, length: { maximum: 255 }, allow_blank: true
 
   # Reading logs associations
   has_many :reading_logs, dependent: :destroy
@@ -33,12 +33,14 @@ class Book < ApplicationRecord
   end
 
   def word_count_display
+    return "不明" unless word_count.present?
     return word_count unless word_count.to_s.include?('-')
     word_count
   end
 
   # Get average word count for statistics calculation
   def average_word_count
+    return 0 unless word_count.present?
     word_count_avg || word_count_min || word_count.to_i
   end
 
@@ -59,7 +61,12 @@ class Book < ApplicationRecord
   end
 
   def parse_word_count_range
-    return unless word_count.present?
+    unless word_count.present?
+      self.word_count_min = nil
+      self.word_count_max = nil
+      self.word_count_avg = nil
+      return
+    end
     
     if word_count.to_s.include?('-')
       min, max = word_count.to_s.split('-').map(&:to_i)

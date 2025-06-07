@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Holes",
+    "author": "Louis Sachar",
+    "yl": "6.4",
+    "word_count": "46938",
+    "isbn": "9780440414803"
+  },
+  {
+    "title": "Goosebumps #1: Welcome to Dead House",
+    "author": "R.L. Stine",
+    "yl": "4.3",
+    "word_count": "22731",
+    "isbn": ""
+  },
+  {
+    "title": "Harry Potter and the Philosopher's Stone",
+    "author": "J.K. Rowling",
+    "yl": "6.5",
+    "word_count": "77325",
+    "isbn": "9780747532699"
+  },
+  {
+    "title": "Magic Tree House #1: Dinosaurs Before Dark",
+    "author": "Mary Pope Osborne",
+    "yl": "2.8",
+    "word_count": "5500",
+    "isbn": "9780679824114"
+  },
+  {
+    "title": "The Giver",
+    "author": "Lois Lowry",
+    "yl": "5.7",
+    "word_count": "43617",
+    "isbn": "9780553571332"
+  },
+  {
+    "title": "Charlotte's Web",
+    "author": "E.B. White",
+    "yl": "4.4",
+    "word_count": "31938",
+    "isbn": "9780064400558"
+  }
+]

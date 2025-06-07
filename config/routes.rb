@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get "books/search" => "books#search", as: :search_books
   
   # Books resources
-  resources :books, only: [:index, :show, :new, :create] do
+  resources :books, only: [:index, :show, :new, :create, :destroy] do
     resources :reading_logs, only: [:create, :destroy]
   end
   
