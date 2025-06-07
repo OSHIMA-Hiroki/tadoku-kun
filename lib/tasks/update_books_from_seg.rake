@@ -44,7 +44,7 @@ namespace :books do
         title: "Penguin Readers Level 3",
         author: "Various Authors",
         yomiyasusa_level: "3.2-3.8",
-        word_count: "8000-15000",
+        word_count: "5600-21000",
         isbn: "",
         description: "1200語レベル"
       },
@@ -52,7 +52,7 @@ namespace :books do
         title: "Penguin Readers Level 4", 
         author: "Various Authors",
         yomiyasusa_level: "4.0-5.0",
-        word_count: "12000-20000",
+        word_count: "12000-41000",
         isbn: "",
         description: "1700語レベル"
       },
@@ -60,7 +60,7 @@ namespace :books do
         title: "Penguin Readers Level 5",
         author: "Various Authors", 
         yomiyasusa_level: "5.0-6.0",
-        word_count: "18000-25000",
+        word_count: "14000-46000",
         isbn: "",
         description: "2300語レベル"
       },
@@ -94,7 +94,7 @@ namespace :books do
         title: "Oxford Bookworms Stage 2", 
         author: "Various Authors",
         yomiyasusa_level: "2.6-2.8",
-        word_count: "6000-9000",
+        word_count: "5400-8500",
         isbn: "",
         description: "700語レベル"
       },
@@ -102,7 +102,7 @@ namespace :books do
         title: "Oxford Bookworms Stage 3",
         author: "Various Authors", 
         yomiyasusa_level: "3.2-3.4",
-        word_count: "8000-12000",
+        word_count: "7800-11000",
         isbn: "",
         description: "1000語レベル"
       },
@@ -110,7 +110,7 @@ namespace :books do
         title: "Oxford Bookworms Stage 4",
         author: "Various Authors",
         yomiyasusa_level: "3.8-4.2",
-        word_count: "12000-18000",
+        word_count: "14000-22000",
         isbn: "",
         description: "1400語レベル"
       },
@@ -118,7 +118,7 @@ namespace :books do
         title: "Oxford Bookworms Stage 5",
         author: "Various Authors",
         yomiyasusa_level: "4.5-5.0", 
-        word_count: "16000-22000",
+        word_count: "18000-24000",
         isbn: "",
         description: "1800語レベル"
       },
@@ -126,7 +126,7 @@ namespace :books do
         title: "Oxford Bookworms Stage 6",
         author: "Various Authors",
         yomiyasusa_level: "5.5-6.0",
-        word_count: "20000-28000",
+        word_count: "21000-31000",
         isbn: "",
         description: "2500語レベル"
       },
@@ -181,34 +181,78 @@ namespace :books do
         description: "2200語レベル"
       },
       
-      # Individual Popular Books
+      # Popular Book Series
       {
-        title: "Magic Tree House #1: Dinosaurs Before Dark",
+        title: "Magic Tree House Series",
         author: "Mary Pope Osborne",
-        yomiyasusa_level: "2.5",
-        word_count: "5500",
-        isbn: "9780679824114"
+        yomiyasusa_level: "2.5-3.5",
+        word_count: "4900-6100",
+        isbn: ""
       },
       {
-        title: "Charlie and the Chocolate Factory",
+        title: "Roald Dahl Series",
         author: "Roald Dahl", 
-        yomiyasusa_level: "4.8",
-        word_count: "30000",
-        isbn: "9780142410318"
+        yomiyasusa_level: "5.0-6.0",
+        word_count: "30000-43000",
+        isbn: ""
       },
       {
-        title: "Matilda",
-        author: "Roald Dahl",
-        yomiyasusa_level: "5.1", 
-        word_count: "45000",
-        isbn: "9780142410370"
-      },
-      {
-        title: "Harry Potter and the Philosopher's Stone",
+        title: "Harry Potter Series",
         author: "J.K. Rowling",
-        yomiyasusa_level: "6.9",
-        word_count: "77000",
-        isbn: "9780439708180"
+        yomiyasusa_level: "6.0-8.0",
+        word_count: "70000-250000",
+        isbn: ""
+      },
+      
+      # Cambridge English Readers
+      {
+        title: "Cambridge English Readers Starter/Beginner",
+        author: "Various Authors",
+        yomiyasusa_level: "1.2-1.8",
+        word_count: "1500-4000",
+        isbn: ""
+      },
+      {
+        title: "Cambridge English Readers Level 1",
+        author: "Various Authors",
+        yomiyasusa_level: "2.0-2.6",
+        word_count: "3500-7000",
+        isbn: ""
+      },
+      {
+        title: "Cambridge English Readers Level 2",
+        author: "Various Authors",
+        yomiyasusa_level: "2.8-3.4",
+        word_count: "7000-12000",
+        isbn: ""
+      },
+      {
+        title: "Cambridge English Readers Level 3",
+        author: "Various Authors",
+        yomiyasusa_level: "3.6-4.2",
+        word_count: "12000-18000",
+        isbn: ""
+      },
+      {
+        title: "Cambridge English Readers Level 4",
+        author: "Various Authors",
+        yomiyasusa_level: "4.4-5.0",
+        word_count: "18000-25000",
+        isbn: ""
+      },
+      {
+        title: "Cambridge English Readers Level 5",
+        author: "Various Authors",
+        yomiyasusa_level: "5.2-6.0",
+        word_count: "25000-35000",
+        isbn: ""
+      },
+      {
+        title: "Cambridge English Readers Level 6",
+        author: "Various Authors",
+        yomiyasusa_level: "6.2-7.0",
+        word_count: "35000-50000",
+        isbn: ""
       }
     ]
     
