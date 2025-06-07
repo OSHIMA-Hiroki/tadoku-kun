@@ -9,8 +9,11 @@ Rails.application.routes.draw do
   # Root route
   root "books#index"
 
+  # Book search (must come before books resources to avoid conflicts)
+  get "books/search" => "books#search", as: :search_books
+  
   # Books resources
-  resources :books, only: [:index, :show] do
+  resources :books, only: [:index, :show, :new, :create] do
     resources :reading_logs, only: [:create, :destroy]
   end
   

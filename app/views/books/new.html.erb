@@ -1,0 +1,177 @@
+<div class="container mx-auto px-4 py-8">
+  <div class="max-w-2xl mx-auto">
+    <!-- パンくずナビ -->
+    <nav class="flex mb-8" aria-label="Breadcrumb">
+      <ol class="inline-flex items-center space-x-1 md:space-x-3">
+        <li class="inline-flex items-center">
+          <%= link_to books_path, class: "inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600" do %>
+            書籍リスト
+          <% end %>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <%= link_to search_books_path, class: "ml-1 text-sm font-medium text-gray-700 hover:text-blue-600 md:ml-2" do %>
+              新しい本を追加
+            <% end %>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">本の情報を入力</span>
+          </div>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- ページタイトル -->
+    <div class="text-center mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">本の情報を入力</h1>
+      <% if @search_query.present? %>
+        <p class="text-gray-600">検索クエリ: 「<%= @search_query %>」</p>
+      <% end %>
+    </div>
+
+    <!-- フォーム -->
+    <div class="bg-white rounded-lg shadow-lg p-8">
+      <%= form_with model: @book, local: true, class: "space-y-6" do |form| %>
+        
+        <!-- エラーメッセージ -->
+        <% if @book.errors.any? %>
+          <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+            <div class="flex">
+              <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+              </svg>
+              <div class="ml-3">
+                <h3 class="text-sm font-medium text-red-800">
+                  入力内容にエラーがあります
+                </h3>
+                <div class="mt-2 text-sm text-red-700">
+                  <ul class="list-disc list-inside space-y-1">
+                    <% @book.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <!-- タイトル -->
+        <div>
+          <label for="book_title" class="block text-sm font-medium text-gray-700 mb-2">
+            タイトル <span class="text-red-500">*</span>
+          </label>
+          <%= form.text_field :title, 
+              value: @book_data&.dig(:title) || @book.title,
+              required: true,
+              class: "w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 px-4 py-3",
+              placeholder: "本のタイトルを入力してください" %>
+        </div>
+
+        <!-- 著者 -->
+        <div>
+          <label for="book_author" class="block text-sm font-medium text-gray-700 mb-2">
+            著者 <span class="text-red-500">*</span>
+          </label>
+          <%= form.text_field :author, 
+              value: @book_data&.dig(:author) || @book.author,
+              required: true,
+              class: "w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 px-4 py-3",
+              placeholder: "著者名を入力してください" %>
+        </div>
+
+        <!-- YLレベル -->
+        <div>
+          <label for="book_yomiyasusa_level" class="block text-sm font-medium text-gray-700 mb-2">
+            YL（読みやすさレベル） <span class="text-red-500">*</span>
+          </label>
+          <div class="text-sm text-gray-500 mb-2">
+            例: 2.5（固定値）または 2.0-3.0（範囲）
+            <% if @book_data&.dig(:yl).blank? %>
+              <span class="text-orange-600 font-medium">※ 検索で取得できませんでした。手動で入力してください。</span>
+            <% end %>
+          </div>
+          <%= form.text_field :yomiyasusa_level, 
+              value: @book_data&.dig(:yl).present? ? @book_data&.dig(:yl) : @book.yomiyasusa_level,
+              required: true,
+              class: "w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 px-4 py-3",
+              placeholder: "例: 2.5 または 2.0-3.0" %>
+        </div>
+
+        <!-- 語数 -->
+        <div>
+          <label for="book_word_count" class="block text-sm font-medium text-gray-700 mb-2">
+            総語数 <span class="text-red-500">*</span>
+          </label>
+          <div class="text-sm text-gray-500 mb-2">
+            例: 5000（固定値）または 4000-6000（範囲）
+            <% if @book_data&.dig(:word_count).blank? %>
+              <span class="text-orange-600 font-medium">※ 検索で取得できませんでした。手動で入力してください。</span>
+            <% end %>
+          </div>
+          <%= form.text_field :word_count, 
+              value: @book_data&.dig(:word_count).present? ? @book_data&.dig(:word_count) : @book.word_count,
+              required: true,
+              class: "w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 px-4 py-3",
+              placeholder: "例: 5000 または 4000-6000" %>
+        </div>
+
+        <!-- ISBN（オプション） -->
+        <div>
+          <label for="book_isbn" class="block text-sm font-medium text-gray-700 mb-2">
+            ISBN（オプション）
+          </label>
+          <%= form.text_field :isbn, 
+              value: @book.isbn,
+              class: "w-full rounded-md border-gray-300 focus:border-blue-500 focus:ring-blue-500 px-4 py-3",
+              placeholder: "ISBN番号（任意）" %>
+        </div>
+
+        <!-- 注意事項 -->
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div class="flex">
+            <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+            </svg>
+            <div class="ml-3">
+              <h3 class="text-sm font-medium text-blue-800">
+                入力のヒント
+              </h3>
+              <div class="mt-2 text-sm text-blue-700">
+                <ul class="list-disc list-inside space-y-1">
+                  <li>YLは数値のみ（例: 2.5）または範囲（例: 2.0-3.0）で入力してください</li>
+                  <li>語数は数値のみ（例: 5000）または範囲（例: 4000-6000）で入力してください</li>
+                  <li>範囲の場合は、ハイフン（-）で区切って入力してください</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 送信ボタン -->
+        <div class="flex space-x-4">
+          <%= form.submit "本を登録", 
+              class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium cursor-pointer border-0" %>
+          
+          <%= link_to search_books_path(query: @search_query), 
+              class: "bg-gray-300 text-gray-700 px-6 py-3 rounded-md hover:bg-gray-400" do %>
+            検索に戻る
+          <% end %>
+          
+          <%= link_to books_path, 
+              class: "bg-gray-300 text-gray-700 px-6 py-3 rounded-md hover:bg-gray-400" do %>
+            キャンセル
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

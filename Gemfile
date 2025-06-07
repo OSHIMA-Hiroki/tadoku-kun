@@ -48,6 +48,10 @@ gem "devise"
 gem "chartkick"
 gem "groupdate"
 
+# Web scraping for book information
+gem "nokogiri"
+gem "httparty"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 

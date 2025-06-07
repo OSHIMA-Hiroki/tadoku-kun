@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   before_action :set_book, only: [:show]
 
   def index
@@ -44,9 +45,44 @@ class BooksController < ApplicationController
     @times_read = @reading_logs.count
   end
 
+  def search
+    @search_query = params[:query]&.strip
+    @search_results = []
+    
+    if @search_query.present?
+      @search_results = search_book_information(@search_query)
+    end
+  end
+
+  def new
+    @book = Book.new
+    @search_query = params[:query]
+    @book_data = params[:book_data]&.permit(:title, :author, :yl, :word_count)
+  end
+
+  def create
+    @book = Book.new(book_params)
+    
+    if @book.save
+      redirect_to @book, notice: '本が正常に追加されました！'
+    else
+      @search_query = params[:query]
+      @book_data = params[:book_data]
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_book
     @book = Book.find(params[:id])
+  end
+
+  def book_params
+    params.require(:book).permit(:title, :author, :yomiyasusa_level, :word_count, :isbn)
+  end
+
+  def search_book_information(query)
+    BookSearchService.search(query)
   end
 end
