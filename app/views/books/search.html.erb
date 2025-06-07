@@ -13,7 +13,7 @@
             <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
             </svg>
-            <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">新しい本を追加</span>
+            <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">本を検索・追加</span>
           </div>
         </li>
       </ol>
@@ -21,8 +21,8 @@
 
     <!-- ページタイトル -->
     <div class="text-center mb-8">
-      <h1 class="text-3xl font-bold text-gray-900 mb-4">新しい本を追加</h1>
-      <p class="text-gray-600">本のタイトルを検索して、YLと語数情報を自動取得します</p>
+      <h1 class="text-3xl font-bold text-gray-900 mb-4">本を検索・追加</h1>
+      <p class="text-gray-600">既存の本を検索するか、見つからない場合は新しく追加できます</p>
     </div>
 
     <!-- 検索フォーム -->
@@ -54,86 +54,158 @@
         <% if @search_results.any? %>
           <div class="space-y-4">
             <% @search_results.each_with_index do |result, index| %>
-              <div class="border border-gray-200 rounded-lg p-6">
-                <div class="flex justify-between items-start mb-4">
-                  <div class="flex-1">
-                    <h3 class="text-lg font-medium text-gray-900 mb-2"><%= result[:title] %></h3>
-                    <p class="text-gray-600 mb-2">著者: <%= result[:author] %></p>
-                    
-                    <div class="flex flex-wrap gap-2 mb-3">
-                      <% if result[:yl].present? %>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
-                          YL <%= result[:yl] %>
+              <% if result[:source] == "Database" %>
+                <!-- 既存の本が見つかった場合 -->
+                <div class="border border-green-200 bg-green-50 rounded-lg p-6">
+                  <div class="flex items-start mb-4">
+                    <div class="flex-shrink-0">
+                      <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                    </div>
+                    <div class="ml-3 flex-1">
+                      <h3 class="text-lg font-medium text-green-900 mb-2">
+                        <%= result[:title] %>
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 ml-2">
+                          登録済み
                         </span>
-                      <% else %>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-500">
-                          YL 不明
-                        </span>
+                      </h3>
+                      <% if result[:author] != "Unknown Author" %>
+                        <p class="text-green-700 mb-2">著者: <%= result[:author] %></p>
                       <% end %>
                       
-                      <% if result[:word_count].present? %>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                          <%= result[:word_count] %>語
-                        </span>
-                      <% else %>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-500">
-                          語数 不明
-                        </span>
-                      <% end %>
+                      <div class="flex flex-wrap gap-2 mb-3">
+                        <% if result[:yl].present? %>
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                            YL <%= result[:yl] %>
+                          </span>
+                        <% else %>
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-500">
+                            YL 不明
+                          </span>
+                        <% end %>
+                        
+                        <% if result[:word_count].present? %>
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                            <%= result[:word_count] %>語
+                          </span>
+                        <% else %>
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-500">
+                            語数 不明
+                          </span>
+                        <% end %>
+                      </div>
                       
-                      <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
-                        信頼度: <%= result[:confidence] %>
-                      </span>
-                      <% if result[:source] %>
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
-                          出典: <%= result[:source] %>
-                        </span>
-                      <% end %>
+                      <p class="text-green-600 text-sm mb-3">この本は既にデータベースに登録されています。</p>
+                      
+                      <div class="flex space-x-3">
+                        <% book = Book.find_by(title: result[:title]) %>
+                        <%= link_to book_path(book), 
+                            class: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium" do %>
+                          詳細を見る
+                        <% end %>
+                        
+                        <% if user_signed_in? && !book.read_by?(current_user) %>
+                          <%= button_to "読了として記録", book_reading_logs_path(book), 
+                              method: :post,
+                              form: { style: "display: inline;" },
+                              class: "bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium border-0 cursor-pointer" %>
+                        <% end %>
+                      </div>
                     </div>
                   </div>
                 </div>
+              <% else %>
+                <!-- 外部検索結果の場合（現在は使用されていない） -->
+                <div class="border border-gray-200 rounded-lg p-6">
+                  <div class="flex justify-between items-start mb-4">
+                    <div class="flex-1">
+                      <h3 class="text-lg font-medium text-gray-900 mb-2"><%= result[:title] %></h3>
+                      <p class="text-gray-600 mb-2">著者: <%= result[:author] %></p>
+                      
+                      <div class="flex flex-wrap gap-2 mb-3">
+                        <% if result[:yl].present? %>
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                            YL <%= result[:yl] %>
+                          </span>
+                        <% else %>
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-500">
+                            YL 不明
+                          </span>
+                        <% end %>
+                        
+                        <% if result[:word_count].present? %>
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                            <%= result[:word_count] %>語
+                          </span>
+                        <% else %>
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-500">
+                            語数 不明
+                          </span>
+                        <% end %>
+                        
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
+                          信頼度: <%= result[:confidence] %>
+                        </span>
+                        <% if result[:source] %>
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                            出典: <%= result[:source] %>
+                          </span>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
 
-                <div class="flex space-x-3">
-                  <%= link_to new_book_path(
-                      query: @search_query,
-                      book_data: {
-                        title: result[:title],
-                        author: result[:author],
-                        yl: result[:yl],
-                        word_count: result[:word_count]
-                      }
-                    ), 
-                    class: "bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium" do %>
-                    この情報で登録
-                  <% end %>
-                  
-                  <%= link_to new_book_path(
-                      query: @search_query,
-                      book_data: {
-                        title: result[:title],
-                        author: result[:author],
-                        yl: "",
-                        word_count: ""
-                      }
-                    ), 
-                    class: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium" do %>
-                    情報を編集して登録
-                  <% end %>
+                  <div class="flex space-x-3">
+                    <%= link_to new_book_path(
+                        query: @search_query,
+                        book_data: {
+                          title: result[:title],
+                          author: result[:author],
+                          yl: result[:yl],
+                          word_count: result[:word_count]
+                        }
+                      ), 
+                      class: "bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium" do %>
+                      この情報で登録
+                    <% end %>
+                    
+                    <%= link_to new_book_path(
+                        query: @search_query,
+                        book_data: {
+                          title: result[:title],
+                          author: result[:author],
+                          yl: "",
+                          word_count: ""
+                        }
+                      ), 
+                      class: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium" do %>
+                      情報を編集して登録
+                    <% end %>
+                  </div>
                 </div>
-              </div>
+              <% end %>
             <% end %>
           </div>
         <% else %>
           <div class="text-center py-8">
             <svg class="w-12 h-12 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
             </svg>
-            <h3 class="text-lg font-medium text-gray-900 mb-2">検索結果が見つかりませんでした</h3>
-            <p class="text-gray-500 mb-4">別のタイトルで検索するか、手動で登録してください</p>
-            <%= link_to new_book_path(query: @search_query), 
-                class: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium" do %>
-              手動で登録
-            <% end %>
+            <h3 class="text-lg font-medium text-gray-900 mb-2">「<%= @search_query %>」が見つかりませんでした</h3>
+            <p class="text-gray-500 mb-4">この本はまだデータベースに登録されていません。<br>新しく追加しますか？</p>
+            
+            <div class="space-x-3">
+              <%= link_to new_book_path(query: @search_query), 
+                  class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium" do %>
+                📚 新しい本として追加
+              <% end %>
+              
+              <%= link_to search_books_path, 
+                  class: "bg-gray-300 hover:bg-gray-400 text-gray-700 px-6 py-2 rounded-md text-sm font-medium" do %>
+                別のタイトルで検索
+              <% end %>
+            </div>
           </div>
         <% end %>
       </div>
