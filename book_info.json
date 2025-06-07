@@ -1,667 +1,919 @@
 [
   {
     "title": "Foundattions Reading Library",
-    "YL": "0.5-1.4",
-    "total_words": "500-3000"
+    "author": null,
+    "yl": "0.5-1.4",
+    "word_count": "500-3000",
+    "isbn": null
   },
   {
     "title": "Penguin Readers Easystarts",
-    "YL": "0.8",
-    "total_words": "900"
+    "author": null,
+    "yl": "0.8",
+    "word_count": "900",
+    "isbn": null
   },
   {
     "title": "Oxford Bookworms Starters",
-    "YL": "0.8-0.9",
-    "total_words": "700-1500"
+    "author": null,
+    "yl": "0.8-0.9",
+    "word_count": "700-1500",
+    "isbn": null
   },
   {
     "title": "Macmillan Readers Starter",
-    "YL": "0.9",
-    "total_words": "500-600"
+    "author": null,
+    "yl": "0.9",
+    "word_count": "500-600",
+    "isbn": null
   },
   {
     "title": "Oxford Reading Tree Stage1-9",
-    "YL": "0.0-1.0",
-    "total_words": "1-1500"
+    "author": null,
+    "yl": "0.0-1.0",
+    "word_count": "1-1500",
+    "isbn": null
   },
   {
     "title": "Longman Literacy Land Story Street",
-    "YL": "0.0-3.0",
-    "total_words": "1-5200"
+    "author": null,
+    "yl": "0.0-3.0",
+    "word_count": "1-5200",
+    "isbn": null
   },
   {
     "title": "Macmillan Springboard",
-    "YL": "0.1-0.7",
-    "total_words": "30-400"
+    "author": null,
+    "yl": "0.1-0.7",
+    "word_count": "30-400",
+    "isbn": null
   },
   {
     "title": "Rookie Readers Fiction Level A, B, C",
-    "YL": "0.1-0.7",
-    "total_words": "20-350"
+    "author": null,
+    "yl": "0.1-0.7",
+    "word_count": "20-350",
+    "isbn": null
   },
   {
     "title": "Cambridge Storybooks",
-    "YL": "0.2-0.5",
-    "total_words": "30-400"
+    "author": null,
+    "yl": "0.2-0.5",
+    "word_count": "30-400",
+    "isbn": null
   },
   {
     "title": "Longman Shared Reading",
-    "YL": "0.2-0.3",
-    "total_words": "50-100"
+    "author": null,
+    "yl": "0.2-0.3",
+    "word_count": "50-100",
+    "isbn": null
   },
   {
     "title": "Oxford Start with English Readers",
-    "YL": "0.2-1.2",
-    "total_words": "100-1000"
+    "author": null,
+    "yl": "0.2-1.2",
+    "word_count": "100-1000",
+    "isbn": null
   },
   {
     "title": "Longman Big and Little Books",
-    "YL": "0.4",
-    "total_words": "200-240"
+    "author": null,
+    "yl": "0.4",
+    "word_count": "200-240",
+    "isbn": null
   },
   {
     "title": "Sight Word Readers",
-    "YL": "0.3",
-    "total_words": "20-50"
+    "author": null,
+    "yl": "0.3",
+    "word_count": "20-50",
+    "isbn": null
   },
   {
     "title": "Time-to-Discover Readers",
-    "YL": "0.5-1.0",
-    "total_words": "120-200"
+    "author": null,
+    "yl": "0.5-1.0",
+    "word_count": "120-200",
+    "isbn": null
   },
   {
     "title": "Step into Reading Step 1",
-    "YL": "0.2-0.3",
-    "total_words": "50-150"
+    "author": null,
+    "yl": "0.2-0.3",
+    "word_count": "50-150",
+    "isbn": null
   },
   {
     "title": "Scholastic Reader Level1",
-    "YL": "0.1-0.3",
-    "total_words": "30-350"
+    "author": null,
+    "yl": "0.1-0.3",
+    "word_count": "30-350",
+    "isbn": null
   },
   {
     "title": "Scholastic Reader Level2",
-    "YL": "0.4-0.6",
-    "total_words": "250-500"
+    "author": null,
+    "yl": "0.4-0.6",
+    "word_count": "250-500",
+    "isbn": null
   },
   {
     "title": "My First I Can Read Books",
-    "YL": "0.3",
-    "total_words": "80-130"
+    "author": null,
+    "yl": "0.3",
+    "word_count": "80-130",
+    "isbn": null
   },
   {
     "title": "Penguin Young Readers Level 1",
-    "YL": "0.3-0.5",
-    "total_words": "80-300"
+    "author": null,
+    "yl": "0.3-0.5",
+    "word_count": "80-300",
+    "isbn": null
   },
   {
     "title": "Ready-to-Read Pre-Level 1",
-    "YL": "0.3",
-    "total_words": "30-100"
+    "author": null,
+    "yl": "0.3",
+    "word_count": "30-100",
+    "isbn": null
   },
   {
     "title": "All Aboard Reading Picture Books",
-    "YL": "0.3",
-    "total_words": "150-200"
+    "author": null,
+    "yl": "0.3",
+    "word_count": "150-200",
+    "isbn": null
   },
   {
     "title": "Easy-to-Read Level 1",
-    "YL": "0.3-0.6",
-    "total_words": "80-450"
+    "author": null,
+    "yl": "0.3-0.6",
+    "word_count": "80-450",
+    "isbn": null
   },
   {
     "title": "Addison Wesley Big and Little Books",
-    "YL": "0.4",
-    "total_words": "150-400"
+    "author": null,
+    "yl": "0.4",
+    "word_count": "150-400",
+    "isbn": null
   },
   {
     "title": "Oxford Classic Tales",
-    "YL": "0.4-0.8",
-    "total_words": "400-1000"
+    "author": null,
+    "yl": "0.4-0.8",
+    "word_count": "400-1000",
+    "isbn": null
   },
   {
     "title": "Curious George Short Stories",
-    "YL": "0.5-0.7",
-    "total_words": "340-700"
+    "author": null,
+    "yl": "0.5-0.7",
+    "word_count": "340-700",
+    "isbn": null
   },
   {
     "title": "Dorling Kindersley Readers Level 1",
-    "YL": "0.6",
-    "total_words": "600-700"
+    "author": null,
+    "yl": "0.6",
+    "word_count": "600-700",
+    "isbn": null
   },
   {
     "title": "Oxford Dominoes Stage 0",
-    "YL": "0.9",
-    "total_words": "2000"
+    "author": null,
+    "yl": "0.9",
+    "word_count": "2000",
+    "isbn": null
   },
   {
     "title": "Penguin Young Readers Level 2",
-    "YL": "0.7-1.0",
-    "total_words": "250-500"
+    "author": null,
+    "yl": "0.7-1.0",
+    "word_count": "250-500",
+    "isbn": null
   },
   {
     "title": "Longman Chatterbox",
-    "YL": "0.3-0.6",
-    "total_words": "20-200"
-  },
-  {
-    "title": "TL PM Readers",
-    "YL": "0. 1-1.0",
-    "total_words": "50-500"
+    "author": null,
+    "yl": "0.3-0.6",
+    "word_count": "20-200",
+    "isbn": null
   },
   {
     "title": "HM Leveled Reading Grade 1",
-    "YL": "0.2-0.8",
-    "total_words": "50-500"
+    "author": null,
+    "yl": "0.2-0.8",
+    "word_count": "50-500",
+    "isbn": null
   },
   {
     "title": "このレベルで楽しめる絵本",
-    "YL": "0.2-0.8",
-    "total_words": "200"
+    "author": null,
+    "yl": "0.2-0.8",
+    "word_count": "200",
+    "isbn": null
   },
   {
     "title": "Penguin Readers Level 1",
-    "YL": "1.0-1.4",
-    "total_words": "1300-4400"
+    "author": null,
+    "yl": "1.0-1.4",
+    "word_count": "1300-4400",
+    "isbn": null
   },
   {
     "title": "Cambridge English Readers Starter1",
-    "YL": "1.2",
-    "total_words": "2000"
+    "author": null,
+    "yl": "1.2",
+    "word_count": "2000",
+    "isbn": null
   },
   {
     "title": "Macmillan New Wave Readers Level 2",
-    "YL": "1.2",
-    "total_words": "2000-3000"
+    "author": null,
+    "yl": "1.2",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "Cambridge English Readers Level 1",
-    "YL": "1.4-1.6",
-    "total_words": "3400-4800"
+    "author": null,
+    "yl": "1.4-1.6",
+    "word_count": "3400-4800",
+    "isbn": null
   },
   {
     "title": "Macmillan Readers Beginner",
-    "YL": "1.6-1.8",
-    "total_words": "5000-6000"
+    "author": null,
+    "yl": "1.6-1.8",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "Rookie Readers Nonfiction",
-    "YL": "1.0-3.0",
-    "total_words": "200-500"
+    "author": null,
+    "yl": "1.0-3.0",
+    "word_count": "200-500",
+    "isbn": null
   },
   {
     "title": "Penguin Young Readers Level 3",
-    "YL": "1.2-1.6",
-    "total_words": "700-1400"
+    "author": null,
+    "yl": "1.2-1.6",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "I Can Read Books Level 2",
-    "YL": "1.2-1-6",
-    "total_words": "1500-2000"
+    "author": null,
+    "yl": "1.2-1-6",
+    "word_count": "1500-2000",
+    "isbn": null
   },
   {
     "title": "Puffin EASY-to-READ Level 2",
-    "YL": "0.8-1.2",
-    "total_words": "500-1500"
+    "author": null,
+    "yl": "0.8-1.2",
+    "word_count": "500-1500",
+    "isbn": null
   },
   {
     "title": "All Aboard Reading Level 2",
-    "YL": "0.8-1.2",
-    "total_words": "500-1500"
+    "author": null,
+    "yl": "0.8-1.2",
+    "word_count": "500-1500",
+    "isbn": null
   },
   {
     "title": "Poppleton Series",
-    "YL": "1.0-1.4",
-    "total_words": "700-900"
+    "author": null,
+    "yl": "1.0-1.4",
+    "word_count": "700-900",
+    "isbn": null
   },
   {
     "title": "Mr. Putter and Tabby Series",
-    "YL": "1.2-1.6",
-    "total_words": "600-900"
+    "author": null,
+    "yl": "1.2-1.6",
+    "word_count": "600-900",
+    "isbn": null
   },
   {
     "title": "Ready-to-Read Level 3",
-    "YL": "1.4-1.8",
-    "total_words": "1000-2800"
+    "author": null,
+    "yl": "1.4-1.8",
+    "word_count": "1000-2800",
+    "isbn": null
   },
   {
     "title": "NATE Nate the Great Mystery Series",
-    "YL": "1.4-1.8",
-    "total_words": "1200-2000"
+    "author": null,
+    "yl": "1.4-1.8",
+    "word_count": "1200-2000",
+    "isbn": null
   },
   {
     "title": "Curious George Long Stories",
-    "YL": "1.0-1.6",
-    "total_words": "1300-2500"
+    "author": null,
+    "yl": "1.0-1.6",
+    "word_count": "1300-2500",
+    "isbn": null
   },
   {
     "title": "Scholastic Reader Level3",
-    "YL": "1.4-1.6",
-    "total_words": "1200-2100"
+    "author": null,
+    "yl": "1.4-1.6",
+    "word_count": "1200-2100",
+    "isbn": null
   },
   {
     "title": "Step into Reading Step 3",
-    "YL": "0.9-1.4",
-    "total_words": "500-1500"
+    "author": null,
+    "yl": "0.9-1.4",
+    "word_count": "500-1500",
+    "isbn": null
   },
   {
     "title": "Puffin EASY-to-READ Level 3",
-    "YL": "1.6-2.0",
-    "total_words": "1000-3000"
+    "author": null,
+    "yl": "1.6-2.0",
+    "word_count": "1000-3000",
+    "isbn": null
   },
   {
     "title": "Leo Lionni",
-    "YL": "0.8-1.8",
-    "total_words": "500"
+    "author": null,
+    "yl": "0.8-1.8",
+    "word_count": "500",
+    "isbn": null
   },
   {
     "title": "DK ELT Graded Readers Beginner",
-    "YL": "1.2",
-    "total_words": "2000-2200"
+    "author": null,
+    "yl": "1.2",
+    "word_count": "2000-2200",
+    "isbn": null
   },
   {
     "title": "Oxford Factfiles Stage 1",
-    "YL": "1.8-2.0",
-    "total_words": "3000-3400"
+    "author": null,
+    "yl": "1.8-2.0",
+    "word_count": "3000-3400",
+    "isbn": null
   },
   {
     "title": "Oxford Playscripts Stage 1",
-    "YL": "1.6-1.8",
-    "total_words": "3000"
+    "author": null,
+    "yl": "1.6-1.8",
+    "word_count": "3000",
+    "isbn": null
   },
   {
     "title": "Oxford Dominoes Stage 1",
-    "YL": "1.8",
-    "total_words": "4000"
+    "author": null,
+    "yl": "1.8",
+    "word_count": "4000",
+    "isbn": null
   },
   {
     "title": "Penguin Young Readers Level 4",
-    "YL": "1.8-2.2",
-    "total_words": "2000-3000"
+    "author": null,
+    "yl": "1.8-2.2",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "Dorling Kindersley Readers Level 3",
-    "YL": "1.8-2.0",
-    "total_words": "2000-2500"
+    "author": null,
+    "yl": "1.8-2.0",
+    "word_count": "2000-2500",
+    "isbn": null
   },
   {
     "title": "このレベルで楽しめるお勧め絵本",
-    "YL": "0.5-2.5",
-    "total_words": "300-1500"
+    "author": null,
+    "yl": "0.5-2.5",
+    "word_count": "300-1500",
+    "isbn": null
   },
   {
     "title": "Oxford Bookworms Stage 1",
-    "YL": "2.0-2.2",
-    "total_words": "4800-7300"
+    "author": null,
+    "yl": "2.0-2.2",
+    "word_count": "4800-7300",
+    "isbn": null
   },
   {
     "title": "Penguin Readers Level 2",
-    "YL": "2.2-2.6",
-    "total_words": "3500-11000"
+    "author": null,
+    "yl": "2.2-2.6",
+    "word_count": "3500-11000",
+    "isbn": null
   },
   {
     "title": "Macmillan New Wave Readers Level 3",
-    "YL": "2.4-2.6",
-    "total_words": "2000-2200"
+    "author": null,
+    "yl": "2.4-2.6",
+    "word_count": "2000-2200",
+    "isbn": null
   },
   {
     "title": "Oxford Bookworms Stage 2",
-    "YL": "2.6-2.8",
-    "total_words": "5400-8500"
+    "author": null,
+    "yl": "2.6-2.8",
+    "word_count": "5400-8500",
+    "isbn": null
   },
   {
     "title": "Cambridge English Readers Level 2",
-    "YL": "2.6-2.8",
-    "total_words": "8200-10000"
+    "author": null,
+    "yl": "2.6-2.8",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "Scholastic Reader Level4",
-    "YL": "2.0-3.0",
-    "total_words": "2200-5800"
+    "author": null,
+    "yl": "2.0-3.0",
+    "word_count": "2200-5800",
+    "isbn": null
   },
   {
     "title": "Step into Reading Step 4",
-    "YL": "1.4-2.0",
-    "total_words": "1300-3000"
+    "author": null,
+    "yl": "1.4-2.0",
+    "word_count": "1300-3000",
+    "isbn": null
   },
   {
     "title": "Dorling Kindersley Readers Level 4",
-    "YL": "2.0-3.0",
-    "total_words": "3000-4800"
+    "author": null,
+    "yl": "2.0-3.0",
+    "word_count": "3000-4800",
+    "isbn": null
   },
   {
     "title": "Oxford Dominoes Stage 2",
-    "YL": "2.6-2.8",
-    "total_words": "8000"
+    "author": null,
+    "yl": "2.6-2.8",
+    "word_count": "8000",
+    "isbn": null
   },
   {
     "title": "Ｆｒａｎｎｙ K Stein",
-    "YL": "2.0-3.0",
-    "total_words": "4000"
+    "author": null,
+    "yl": "2.0-3.0",
+    "word_count": "4000",
+    "isbn": null
   },
   {
     "title": "Cobble Street Cousins",
-    "YL": "2.0-3.0",
-    "total_words": "2800-3500"
+    "author": null,
+    "yl": "2.0-3.0",
+    "word_count": "2800-3500",
+    "isbn": null
   },
   {
     "title": "Rainbow Magic",
-    "YL": "2.0-3.0",
-    "total_words": "4000-4500"
+    "author": null,
+    "yl": "2.0-3.0",
+    "word_count": "4000-4500",
+    "isbn": null
   },
   {
     "title": "Flat Stanley Adventure",
-    "YL": "2.0-3.0",
-    "total_words": "4000-7000"
+    "author": null,
+    "yl": "2.0-3.0",
+    "word_count": "4000-7000",
+    "isbn": null
   },
   {
     "title": "Magic Tree House",
-    "YL": "2.5-3.5",
-    "total_words": "4900-6100"
+    "author": null,
+    "yl": "2.5-3.5",
+    "word_count": "4900-6100",
+    "isbn": null
   },
   {
     "title": "Zack Files Series",
-    "YL": "2.5-3.5",
-    "total_words": "6000-12000"
+    "author": null,
+    "yl": "2.5-3.5",
+    "word_count": "6000-12000",
+    "isbn": null
   },
   {
     "title": "Marvin Redpost",
-    "YL": "2.5-3.5",
-    "total_words": "6000-12000"
+    "author": null,
+    "yl": "2.5-3.5",
+    "word_count": "6000-12000",
+    "isbn": null
   },
   {
     "title": "Jigsaw Jones Mysteries",
-    "YL": "2.5-3.5",
-    "total_words": "6000-12000"
+    "author": null,
+    "yl": "2.5-3.5",
+    "word_count": "6000-12000",
+    "isbn": null
   },
   {
     "title": "Horrid Henry Series",
-    "YL": "2.5-3.5",
-    "total_words": "5000-7000"
+    "author": null,
+    "yl": "2.5-3.5",
+    "word_count": "5000-7000",
+    "isbn": null
   },
   {
     "title": "Julian and Huey Series",
-    "YL": "2.5-3.5",
-    "total_words": "5500-6500"
+    "author": null,
+    "yl": "2.5-3.5",
+    "word_count": "5500-6500",
+    "isbn": null
   },
   {
     "title": "Jake Drake Series",
-    "YL": "2.5-3.5",
-    "total_words": "8000-13000"
+    "author": null,
+    "yl": "2.5-3.5",
+    "word_count": "8000-13000",
+    "isbn": null
   },
   {
     "title": "The Enormous Crocodile (Dahl)",
-    "YL": "2.0-2.5",
-    "total_words": "3000"
+    "author": "Dahl; Wilson",
+    "yl": "2.0-2.5",
+    "word_count": "3000",
+    "isbn": null
   },
   {
     "title": "Macmillan Readers Elementary",
-    "YL": "3.0-3.2",
-    "total_words": "7600-13000"
+    "author": null,
+    "yl": "3.0-3.2",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "Macmillan New Wave Readers Level 4",
-    "YL": "3.0-3.2",
-    "total_words": "3000"
+    "author": null,
+    "yl": "3.0-3.2",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "Oxford Factfiles Stage 3",
-    "YL": "3.2-3.4",
-    "total_words": "5600-6300"
+    "author": null,
+    "yl": "3.2-3.4",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "Oxford Bookworms Stage 3",
-    "YL": "3.2-3.4",
-    "total_words": "7800-11000"
+    "author": null,
+    "yl": "3.2-3.4",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "Penguin Readers Level 3",
-    "YL": "3.2-3.8",
-    "total_words": "5600-21000"
+    "author": null,
+    "yl": "3.2-3.8",
+    "word_count": "5600-21000",
+    "isbn": null
   },
   {
     "title": "Macmillan New Wave Readers Level 5",
-    "YL": "3.4-3.6",
-    "total_words": "6000"
+    "author": null,
+    "yl": "3.4-3.6",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "Cambridge English Readers Level 3",
-    "YL": "3.6-3.8",
-    "total_words": "13000-16000"
+    "author": null,
+    "yl": "3.6-3.8",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "A to Z Mysteries",
-    "YL": "3.0-4.0",
-    "total_words": "7000-9000"
+    "author": null,
+    "yl": "3.0-4.0",
+    "word_count": "7000-9000",
+    "isbn": null
   },
   {
     "title": "Capital Mysteries",
-    "YL": "3.0-4.0",
-    "total_words": "7000-9000"
+    "author": null,
+    "yl": "3.0-4.0",
+    "word_count": "7000-9000",
+    "isbn": null
   },
   {
     "title": "Magic School Bus Series",
-    "YL": "3.0-4.0",
-    "total_words": "4000-7000"
+    "author": null,
+    "yl": "3.0-4.0",
+    "word_count": "4000-7000",
+    "isbn": null
   },
   {
     "title": "My Father Dragon Series",
-    "YL": "3.0-4.0",
-    "total_words": "7000"
+    "author": null,
+    "yl": "3.0-4.0",
+    "word_count": "7000",
+    "isbn": null
   },
   {
     "title": "“Sarah, Plain and Tall”Series",
-    "YL": "3.0-4.0",
-    "total_words": "7000"
+    "author": null,
+    "yl": "3.0-4.0",
+    "word_count": "7000",
+    "isbn": null
   },
   {
     "title": "Catwings Series",
-    "YL": "3.5-4.5",
-    "total_words": "1500-3000"
+    "author": null,
+    "yl": "3.5-4.5",
+    "word_count": "1500-3000",
+    "isbn": null
   },
   {
     "title": "Judy Moody Series",
-    "YL": "3.5-4.5",
-    "total_words": "9000-12000"
+    "author": null,
+    "yl": "3.5-4.5",
+    "word_count": "9000-12000",
+    "isbn": null
   },
   {
     "title": "The Secrets of Droon Series",
-    "YL": "3.5-4.5",
-    "total_words": "7000-10000"
+    "author": null,
+    "yl": "3.5-4.5",
+    "word_count": "7000-10000",
+    "isbn": null
   },
   {
     "title": "Captain Underpants Series",
-    "YL": "2.8-4.5",
-    "total_words": "6000-9000"
+    "author": null,
+    "yl": "2.8-4.5",
+    "word_count": "6000-9000",
+    "isbn": null
   },
   {
     "title": "Boxcar Children",
-    "YL": "3.5-4.5",
-    "total_words": "14000-18000"
+    "author": null,
+    "yl": "3.5-4.5",
+    "word_count": "14000-18000",
+    "isbn": null
   },
   {
     "title": "The Worst Witch Series",
-    "YL": "3.5-5.5",
-    "total_words": "9000-10000"
+    "author": null,
+    "yl": "3.5-5.5",
+    "word_count": "9000-10000",
+    "isbn": null
   },
   {
     "title": "Macmillan Readers Pre-intermediate",
-    "YL": "3.4-43.6",
-    "total_words": "8000-20000"
+    "author": null,
+    "yl": "3.4-43.6",
+    "word_count": "8000-20000",
+    "isbn": null
   },
   {
     "title": "Macmillan Readers Intermediate",
-    "YL": "3.6-4.0",
-    "total_words": "8600-23000"
+    "author": null,
+    "yl": "3.6-4.0",
+    "word_count": "8600-23000",
+    "isbn": null
   },
   {
     "title": "Oxford Bookworms Stage 4",
-    "YL": "3.8-4.2",
-    "total_words": "14000-22000"
-  },
-  {
-    "title": "Penguin Readers Level 4",
-    "YL": "4.0-5．0",
-    "total_words": "12000-41000"
+    "author": null,
+    "yl": "3.8-4.2",
+    "word_count": "14000-22000",
+    "isbn": null
   },
   {
     "title": "Oxford Bookworms Stage 5",
-    "YL": "4.5-5.0",
-    "total_words": "18000-24000"
+    "author": null,
+    "yl": "4.5-5.0",
+    "word_count": "18000-24000",
+    "isbn": null
   },
   {
     "title": "Cambridge English Readers Level 4",
-    "YL": "4.5-5.0",
-    "total_words": "17000-20000"
+    "author": null,
+    "yl": "4.5-5.0",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "Famous Five",
-    "YL": "4.0-5.0",
-    "total_words": "20000-48000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "20000-48000",
+    "isbn": null
   },
   {
     "title": "My Humorous Japan Series",
-    "YL": "3.5-4.5",
-    "total_words": "31000"
+    "author": null,
+    "yl": "3.5-4.5",
+    "word_count": "31000",
+    "isbn": null
   },
   {
     "title": "Wayside School 他の Sachar Series",
-    "YL": "4.0-5.5",
-    "total_words": "8000-36000"
+    "author": null,
+    "yl": "4.0-5.5",
+    "word_count": "8000-36000",
+    "isbn": null
   },
   {
     "title": "Charlie and the Chocolate Factory",
-    "YL": "4.0-5.0",
-    "total_words": "9000-32000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "9000-32000",
+    "isbn": null
   },
   {
     "title": "Goosebumps",
-    "YL": "4.0-5.0",
-    "total_words": "20000-35000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "20000-35000",
+    "isbn": null
   },
   {
     "title": "Little House Series",
-    "YL": "4.0-5.0",
-    "total_words": "35000-60000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "35000-60000",
+    "isbn": null
   },
   {
     "title": "Encyclopedia Brown Series",
-    "YL": "4.0-5.0",
-    "total_words": "30000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "30000",
+    "isbn": null
   },
   {
     "title": "Full House Stephanie",
-    "YL": "4.0-5.0",
-    "total_words": "20000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "20000",
+    "isbn": null
   },
   {
     "title": "Nancy Drew Mystery Series",
-    "YL": "4.0-5.0",
-    "total_words": "31000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "31000",
+    "isbn": null
   },
   {
     "title": "Hardy Boys Series",
-    "YL": "4.0-5.0",
-    "total_words": "31000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "31000",
+    "isbn": null
   },
   {
     "title": "Baby-Sitters Club Series",
-    "YL": "4.0-5.0",
-    "total_words": "28000-35000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "28000-35000",
+    "isbn": null
   },
   {
     "title": "Ramona Series",
-    "YL": "4.0-5.0",
-    "total_words": "18000-20000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "18000-20000",
+    "isbn": null
   },
   {
     "title": "Dragon Slayers’ Academy",
-    "YL": "4.0-5.0",
-    "total_words": "8000-11000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "8000-11000",
+    "isbn": null
   },
   {
     "title": "Fudge Series",
-    "YL": "4.0-5.0",
-    "total_words": "25000-30000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "25000-30000",
+    "isbn": null
   },
   {
     "title": "Anastasia Krupnik",
-    "YL": "4.0-5.0",
-    "total_words": "25000-30000"
+    "author": null,
+    "yl": "4.0-5.0",
+    "word_count": "25000-30000",
+    "isbn": null
   },
   {
     "title": "Penguin Readers Level 5",
-    "YL": "5.0-6.0",
-    "total_words": "14000-46000"
+    "author": null,
+    "yl": "5.0-6.0",
+    "word_count": "14000-46000",
+    "isbn": null
   },
   {
     "title": "Oxford Bookworms Stage 6",
-    "YL": "5.5-6.0",
-    "total_words": "21000-31000"
+    "author": null,
+    "yl": "5.5-6.0",
+    "word_count": "21000-31000",
+    "isbn": null
   },
   {
     "title": "Cambridge English Readers Level 5",
-    "YL": "5.5-6.0",
-    "total_words": "19000-26000"
+    "author": null,
+    "yl": "5.5-6.0",
+    "word_count": "19000-26000",
+    "isbn": null
   },
   {
     "title": "Macmillan Readers Upper",
-    "YL": "4.5-5.0",
-    "total_words": "15000-25000"
+    "author": null,
+    "yl": "4.5-5.0",
+    "word_count": "15000-25000",
+    "isbn": null
   },
   {
     "title": "The Saga of Darren Shan",
-    "YL": "5.0-6.0",
-    "total_words": "40000"
+    "author": null,
+    "yl": "5.0-6.0",
+    "word_count": "40000",
+    "isbn": null
   },
   {
     "title": "Animorphs",
-    "YL": "5.0-6.0",
-    "total_words": "25000-40000"
+    "author": null,
+    "yl": "5.0-6.0",
+    "word_count": "25000-40000",
+    "isbn": null
   },
   {
     "title": "A Series of Unfortunate Events",
-    "YL": "5.0-6.0",
-    "total_words": "25000-40000"
+    "author": null,
+    "yl": "5.0-6.0",
+    "word_count": "25000-40000",
+    "isbn": null
   },
   {
     "title": "Roald Dahl Series",
-    "YL": "5.0-6.0",
-    "total_words": "30000-43000"
+    "author": null,
+    "yl": "5.0-6.0",
+    "word_count": "30000-43000",
+    "isbn": null
   },
   {
     "title": "Deltora Quest Series",
-    "YL": "5.0-6.0",
-    "total_words": "25000-30000"
+    "author": null,
+    "yl": "5.0-6.0",
+    "word_count": "25000-30000",
+    "isbn": null
   },
   {
     "title": "Rowan of Rin Series",
-    "YL": "5.0-6.0",
-    "total_words": "30000-55000"
+    "author": null,
+    "yl": "5.0-6.0",
+    "word_count": "30000-55000",
+    "isbn": null
   },
   {
     "title": "Penguin Readers Level 6",
-    "YL": "6.0-7.0",
-    "total_words": "30000"
+    "author": null,
+    "yl": "6.0-7.0",
+    "word_count": "30000",
+    "isbn": null
   },
   {
     "title": "Cambridge English Readers Level 6",
-    "YL": "6.0-6.5",
-    "total_words": "26000-34000"
+    "author": null,
+    "yl": "6.0-6.5",
+    "word_count": "26000-34000",
+    "isbn": null
   },
   {
     "title": "Arthur Ransom Series",
-    "YL": "5.5-6.5",
-    "total_words": "120000"
+    "author": null,
+    "yl": "5.5-6.5",
+    "word_count": "120000",
+    "isbn": null
   },
   {
     "title": "Newbery Honor Books",
-    "YL": "6.0-8.0",
-    "total_words": "0"
+    "author": null,
+    "yl": "6.0-8.0",
+    "word_count": null,
+    "isbn": null
   },
   {
     "title": "Harry Potter Series",
-    "YL": "6.0-8.0",
-    "total_words": "0"
+    "author": null,
+    "yl": "6.0-8.0",
+    "word_count": null,
+    "isbn": null
   }
 ]
