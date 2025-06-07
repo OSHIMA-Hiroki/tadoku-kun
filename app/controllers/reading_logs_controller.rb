@@ -13,12 +13,18 @@ class ReadingLogsController < ApplicationController
   end
 
   def destroy
-    @reading_log = current_user.reading_logs.find_by(book: @book)
+    @reading_log = current_user.reading_logs.find(params[:id])
     
     if @reading_log&.destroy
-      redirect_to @book, notice: '読了記録を削除しました。'
+      # Check where the request came from to determine redirect destination
+      if request.referer&.include?('/reading_logs')
+        redirect_to reading_logs_path, notice: '読了記録を削除しました。'
+      else
+        redirect_to @book, notice: '読了記録を削除しました。'
+      end
     else
-      redirect_to @book, alert: '読了記録が見つかりませんでした。'
+      # Redirect back to where they came from
+      redirect_back(fallback_location: @book, alert: '読了記録が見つかりませんでした。')
     end
   end
 
